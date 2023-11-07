@@ -2,6 +2,6 @@
 ## Запуск медиа сервера
 Работает как переключатель. Запускает torserver и jackett.
 ### Python
-```python3 <(curl -sSL https://raw.githubusercontent.com/proletsoz/pyshell/scripts/media_server/toggle.py)```
+```curl -s https://raw.githubusercontent.com/proletsoz/pyshell/media/server.py | sudo python3```
 ### Shell
 ```bash <(curl -sSL https://raw.githubusercontent.com/proletsoz/pyshell/scripts/media_server/toggle.sh)```
