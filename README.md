@@ -4,7 +4,7 @@
 ```bash -c "$(curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/test.sh)"```
 ## Инсталятор Python
 ### Shell
-```wget -O - https://raw.githubusercontent.com/proletsoz/pyshell/main/python.sh | bash```
+```bash -c "$(curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/python.sh)"```
 ## Запуск медиа сервера
 Работает как переключатель. Запускает torserver и jackett.
 ### Python
