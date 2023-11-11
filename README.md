@@ -1,10 +1,10 @@
 # Cкрипты для автоматизации
-## Скрипт для теса
+## Скрипт для теста
 ### Shell
 ```bash -c "$(curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/test.sh)"```
 ## Инсталятор Python
 ### Shell
-```bash -c "$(curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/python.sh)"```
+```sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/python.sh)"```
 ## Запуск медиа сервера
 Работает как переключатель. Запускает torserver и jackett.
 ### Python
