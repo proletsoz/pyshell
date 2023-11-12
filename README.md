@@ -1,4 +1,7 @@
 # Cкрипты для автоматизации
+## Jackett установщик
+### Shell
+```curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/jackett.sh | sudo bash```
 ## Скрипт для теста
 ### Shell
 ```curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/test.sh | bash```
