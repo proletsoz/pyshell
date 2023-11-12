@@ -39,8 +39,8 @@ toggle_services() {
         fi
 }
 
-# Вызов функции toggle_kodi для открытия/закрытия Kodi в зависимости от ее текущего состояния
-toggle_kodi
-
 # Закрытие Kodi перед переключением сервисов и вызов toggle_services
 toggle_services
+
+# Вызов функции toggle_kodi для открытия/закрытия Kodi в зависимости от ее текущего состояния
+toggle_kodi
