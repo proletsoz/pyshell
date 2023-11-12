@@ -37,11 +37,10 @@ toggle_services() {
         else
             start_service "$service"
         fi
-    done
-    
-    # Вызов функции toggle_kodi для открытия/закрытия Kodi в зависимости от ее текущего состояния
-    toggle_kodi
 }
+
+# Вызов функции toggle_kodi для открытия/закрытия Kodi в зависимости от ее текущего состояния
+toggle_kodi
 
 # Закрытие Kodi перед переключением сервисов и вызов toggle_services
 toggle_services
