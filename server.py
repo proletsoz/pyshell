@@ -28,10 +28,13 @@ def stop_service(service_name):
 
 
 def toggle_services():
-    for service in services:
-        if is_service_active(service):
+    all_services_active = all(is_service_active(service)
+                              for service in services)
+    if all_services_active:
+        for service in services:
             stop_service(service)
-        else:
+    else:
+        for service in services:
             start_service(service)
 
 
