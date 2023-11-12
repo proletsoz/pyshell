@@ -13,10 +13,10 @@
 ### Python
 ```curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/server.py | python3```
 ### Shell
-```curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/server.sh | bash```
+```sudo bash /home/&user&/pyshell/server.sh```
 ## Запуск медиа сервера + Kodi
 ### Shell
-```curl -fsSL https://raw.githubusercontent.com/proletsoz/pyshell/main/kodi.sh | bash```
+```sudo bash /home/&user&/pyshell/kodi.sh```
 
 
 

@@ -2,12 +2,6 @@
 
 services=("torrserver.service" "jackett.service")
 
-is_service_active() {
-    local service_name=$1
-    systemctl is-active --quiet "$service_name"
-    return $?
-}
-
 start_service() {
     local service_name=$1
     sudo systemctl start "$service_name"
@@ -32,11 +26,9 @@ toggle_kodi() {
 
 toggle_services() {
     for service in "${services[@]}"; do
-        if is_service_active "$service"; then
-            stop_service "$service"
-        else
-            start_service "$service"
-        fi
+        sudo systemctl is-active --quiet "$service" && stop_service "$service" || start_service "$service" &
+    done
+    wait
 }
 
 # Закрытие Kodi перед переключением сервисов и вызов toggle_services
