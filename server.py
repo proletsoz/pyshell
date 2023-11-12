@@ -5,37 +5,36 @@ services = ["torrserver.service", "jackett.service"]
 
 def is_service_active(service_name):
     try:
-        return subprocess.run(["sudo", "systemctl", "is-active", service_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True).stdout.decode().strip() == "active"
+        output = subprocess.check_output(
+            ["systemctl", "is-active", service_name]).decode().strip()
+        return output == "active"
     except subprocess.CalledProcessError:
         return False
 
 
-def start_service(service_name):
+def start_services(services):
     try:
-        subprocess.run(["sudo", "systemctl", "start",
-                       service_name], check=True)
-        print(f"Service {service_name} started.")
+        subprocess.run(["sudo", "systemctl", "start"] + services, check=True)
+        print("Services started:", ", ".join(services))
     except subprocess.CalledProcessError as e:
-        print(f"Error starting service {service_name}: {e}")
+        print(f"Error starting services: {e}")
 
 
-def stop_service(service_name):
+def stop_services(services):
     try:
-        subprocess.run(["sudo", "systemctl", "stop", service_name], check=True)
-        print(f"Service {service_name} stopped.")
+        subprocess.run(["sudo", "systemctl", "stop"] + services, check=True)
+        print("Services stopped:", ", ".join(services))
     except subprocess.CalledProcessError as e:
-        print(f"Error stopping service {service_name}: {e}")
+        print(f"Error stopping services: {e}")
 
 
 def toggle_services():
-    all_services_active = all(is_service_active(service)
-                              for service in services)
-    if all_services_active:
-        for service in services:
-            stop_service(service)
+    active_services = [
+        service for service in services if is_service_active(service)]
+    if len(active_services) == len(services):
+        stop_services(services)
     else:
-        for service in services:
-            start_service(service)
+        start_services(services)
 
 
 # Call the toggle_services function to toggle the services
