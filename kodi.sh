@@ -20,6 +20,16 @@ stop_service() {
     echo "Service $service_name stopped."
 }
 
+toggle_kodi() {
+    if pgrep kodi; then
+        pkill kodi
+        echo "Kodi closed."
+    else
+        kodi &
+        echo "Kodi opened."
+    fi
+}
+
 toggle_services() {
     for service in "${services[@]}"; do
         if is_service_active "$service"; then
@@ -28,24 +38,10 @@ toggle_services() {
             start_service "$service"
         fi
     done
+    
+    # Вызов функции toggle_kodi для открытия/закрытия Kodi в зависимости от ее текущего состояния
+    toggle_kodi
 }
 
-open_kodi() {
-    kodi & # Запуск Kodi в фоновом режиме
-}
-
-close_kodi() {
-    if pgrep kodi; then
-        pkill kodi
-        echo "Kodi closed."
-    fi
-}
-
-# Закрытие Kodi перед переключением сервисов
-close_kodi
-
-# Вызов функции toggle_services для переключения сервисов
+# Закрытие Kodi перед переключением сервисов и вызов toggle_services
 toggle_services
-
-# Вызов функции open_kodi для открытия Kodi
-open_kodi
